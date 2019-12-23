@@ -1,0 +1,18 @@
+    
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="content-section">
+    <h1>About this Web Application</h1>
+    <img src="https://cdn3.f-cdn.com/contestentries/1317598/18452101/5af2377fa3b01_thumb900.jpg" width="100%">
+    <p>This website is made by Hitesh.
+    </p>
+    {% if user.is_authenticated %}
+
+    {% else %}
+        <div class="d-flex justify-content-center">
+        <a type="button" class="btn btn-success btn-lg mr-4" style="width: 30%" href="{% url 'login' %}">Login</a>
+        <a type="button" class="btn btn-secondary btn-lg" style="width: 30%" href="{% url 'register' %}">Register</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="content-section">
+    <h1>Welcome to <span class="text-success">Thoughts</span> Book</h1>
+    <img src="https://i.pinimg.com/564x/31/de/aa/31deaa19277a2310abc76922193b9e59.jpg" width="100%">
+    <p>Want to share your feelings. Then don't wait for anything. Just login here and share your views.
+    </p>
+    <div class="d-flex justify-content-center">
+    <a type="button" class="btn btn-success btn-lg mr-4" style="width: 30%" href="{% url 'login' %}">Login</a>
+    <a type="button" class="btn btn-secondary btn-lg" style="width: 30%" href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+{% endblock content %}

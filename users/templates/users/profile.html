@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>             <!--user defines the current user-->
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <!-- FORM HERE -->
+        <div class="mt-5">
+            <b class="text-info" id="changeContext">Want to update your Profile Details?</b>
+            <button type="button" class="btn btn-success" id="btnUpdate" onclick=showUpdate()>Update</button>
+            <div class="updateProfile" class="mt-5">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 mt-5">Profile Info</legend>
+                        {{ u_form|crispy }}
+                        {{ p_form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+
+            function showUpdate()
+            {
+
+                $("#btnUpdate").toggleClass("changeBtn");
+
+                var x = $(".updateProfile").toggle();
+                if(x.is(':visible'))
+                {
+                    $("#changeContext").text("Do you want to cancel this operation?");
+                    $("#btnUpdate").text("Cancel");
+                }
+                else
+                {
+                    $("#changeContext").text("Want to update your Profile Details?");
+                    $("#btnUpdate").text("Update");
+                }
+            }
+
+
+        </script>
+    </div>
+{% endblock content %}
