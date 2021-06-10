@@ -3,7 +3,7 @@ automium-web==0.1.1
 boto3==1.9.224
 botocore==1.12.224
 Click==7.0
-Django==2.2.4
+Django==2.2.24
 django-crispy-forms==1.7.2
 django-storages==1.7.1
 docutils==0.15.2
